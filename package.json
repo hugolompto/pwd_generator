@@ -1,0 +1,15 @@
+{
+  "name": "pwd_generator",
+  "version": "1.0.0",
+  "description": "A simple password generator",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "production": "node ."
+  },
+  "author": "Hugo.#2656",
+  "license": "ISC",
+  "dependencies": {
+    "prompt": "^1.1.0"
+  }
+}
