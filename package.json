@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "production": "node ."
+    "production": "node index.js"
   },
   "author": "Hugo.#2656",
   "license": "ISC",
