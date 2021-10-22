@@ -51,27 +51,30 @@ const requests = {
         }
     }
 }
+
 function requestPasswordOptions() {
     prompt.start();
 
     prompt.get(requests, function(err, result) {
-        if (err) { console.error(err) };
-        if (!result.charactersNumber || typeof(result.charactersNumber) != "number" || result.charactersNumber <= 0) { return requestPasswordOptions() };
+        if (err) console.error(err);
+        if (!result.charactersNumber || typeof(result.charactersNumber) != "number" || result.charactersNumber <= 0) return requestPasswordOptions();
 
-        const params = {};
+        const params = [];
+
         for (const name in result) {
-            if (typeof(result[name]) != "boolean" || !result[name]) { continue };
-
-            params[Object.keys(params).length] = name;
+            if (result[name] !== true) continue;
+            params.push(name)
         }
-        if (Object.keys(params).length == 0) { return requestPasswordOptions() };
+
+        if (params.length == 0) return requestPasswordOptions();
 
         let password = "";
+
         for (let character = 0; character < result.charactersNumber; character++) {
             
-            var option = params[Math.floor(Math.random() * (Object.keys(params).length))];
+            const option = params[Math.floor(Math.random() * params.length)];
 
-            password = password + requests.properties[option].randomValue();
+            password += requests.properties[option].randomValue();
         }
 
         console.log(password);
