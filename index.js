@@ -1,9 +1,14 @@
-const charactersList = require('./characters.json');
-
 const prompt = require('prompt');
 
+const charactersList = {
+    symbols : "&~([-|_@)]=+-*!:/;.?,",
+    numbers : "0123456789",
+    lowerCaseLetters : "abcdefghijklmnopqrstuvwxyz",
+    upperCaseLetters : "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+}
+
 function randomArray(array) {
-    return array[Math.floor(Math.random() * array.length)];
+    return array.charAt[Math.floor(Math.random() * array.length)];
 }
 
 const requests = {
